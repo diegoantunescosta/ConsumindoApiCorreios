@@ -16,7 +16,7 @@ app.get ('/',(req, res) => {
         res.json({message:'Encomenda do Opressor encontrada',tracking,result})
         }) 
         .catch((error)=>{
-        res.json({message: 'Codigo de rastreio não encontrado !',error});
+        res.json({message: 'Codigo de rastreio do Opressor não encontrado !',error});
         });
 });
 
