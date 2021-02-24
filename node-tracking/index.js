@@ -16,8 +16,8 @@ app.get ('/',(req, res) => {
         res.json({message:'Encomenda do Opressor encontrada',tracking,result})
         })
         .catch((error)=>{
-        res.json({message: 'Encomenda Extraviada, sinto muito !', error});
+        res.json({message: 'Codigo de rastreio não encontrado !',error});
         });
 });
 
-app.listen (port,() => console.log(`Listening on port ${port}`));
+app.listen (port,() => console.log(`${port} connected`));
