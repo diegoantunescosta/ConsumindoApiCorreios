@@ -16,8 +16,7 @@ const get =(obj, path, fallback = null)=>{
 
 
 app.get ('/',(req, res) => {
-    const{tracking} = req.query;
-
+    const tracking = get(req, 'query.tracking');
     TrackingCorreios.track(tracking)
         .then ((result) =>{
 
