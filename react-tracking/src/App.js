@@ -4,7 +4,8 @@ import TrackingEvents from './components/TrackingEvents';
 
 function App() {
   
-  const [events,setEvents] = useState([])
+  const [events,setEvents] = useState([]);
+
   
   const submitHandler = (event) => {
     event.preventDefault();
@@ -21,6 +22,7 @@ function App() {
       .catch (console.error);
 
     console.log('O Burgues Opressor quer ver onde esta a encomenda',data);
+    
   };
 
   return (

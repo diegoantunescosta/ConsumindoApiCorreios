@@ -1,18 +1,15 @@
 import React from "react";
 
-function TrackingResult({ events }) {
+function TrackingEvents( {events}) {
   if (!events || events.length === 0) return null;
-
-  return (
+  console.log (
     <>
-      <h1>Tracking Result</h1>
-      <ul className="list-group">
-        {events.map(item => <li key={item.descricao}>{item.descricao}</li>)
-          }
-      </ul>
-      
+    <ul>
+      <h1>"test"</h1>
+      {events.map(item => <li key={item.descricao}>{item.descricao}</li>)}
+    </ul>
     </>
-  );
+ );
 }
 
-export default TrackingResult;
+export default TrackingEvents;
