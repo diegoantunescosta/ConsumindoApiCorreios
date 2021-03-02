@@ -1,6 +1,7 @@
 import React from "react";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 function TrackingEvents( {events}) {
   if (!events || events.length === 0) return null;
   console.log (
@@ -13,13 +14,18 @@ function TrackingEvents( {events}) {
 function TrackingResult({ events }) {
   if (!events || !events.length === 0) return null;
   console.log('if ok')
+=======
+function TrackingResult({ data }) {
+  if (!data || !data.length === 0) return null;
+
+>>>>>>> parent of a5f2d2d... result frontend
   return (
     <>
       <h1>Tracking Result</h1>
       <ul className="list-group">
-        {events.map(item => {
+        {data.map(item => {
           const { data, origem, destino, status } = item;
-console.log('ul ok')
+
           return (
             <li key={status} className="list-group-item">
               <span className="badge badge-primary">{origem}</span>
