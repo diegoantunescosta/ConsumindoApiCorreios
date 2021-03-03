@@ -4,7 +4,7 @@ import TrackingEvents from './components/TrackingEvents';
 function App() {
   
   const [events,setEvents] = useState([]);
-
+  
   
   const submitHandler = (event) => {
     event.preventDefault();
@@ -14,13 +14,15 @@ function App() {
 
     fetch (`http://localhost:3001/?tracking=${data.tracking}`)
       .then(response => response.json())
-      .then (data =>{
-          const events = data.events || [];
-          setEvents(events);   
+      .then (result =>{
+        if (result.message === "OK") {
+          setEvents(result.data);
+        }
       })
       .catch (console.error);
 
-    console.log('O Burgues Opressor quer ver onde esta a encomenda',data);
+    console.log('O Burgues Opressor quer ver onde esta a encomenda',(data));
+    
     
   };
 
@@ -36,7 +38,7 @@ function App() {
 
       <TrackingEvents events={events}/>
 
-
+    
 
     </div>
   );

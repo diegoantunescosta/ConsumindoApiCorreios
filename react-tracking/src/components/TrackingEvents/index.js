@@ -1,44 +1,27 @@
-import React from "react";
+import React from 'react';
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 function TrackingEvents( {events}) {
-  if (!events || events.length === 0) return null;
-  console.log (
-    <>
-    <ul>
-      <h1>"test"</h1>
-      {events.map(item => <li key={item.descricao}>{item.descricao}</li>)}
-    </ul>
-=======
-function TrackingResult({ events }) {
-  if (!events || !events.length === 0) return null;
-  console.log('if ok')
-=======
-function TrackingResult({ data }) {
-  if (!data || !data.length === 0) return null;
-
->>>>>>> parent of a5f2d2d... result frontend
+  if (!events || !events.length) return null;
   return (
     <>
-      <h1>Tracking Result</h1>
+      <h4>Resultado:</h4>
+      
       <ul className="list-group">
-        {data.map(item => {
-          const { data, origem, destino, status } = item;
-
+        {events.map(item => {
+          const { tipo, data, hora,categoria } = item;
           return (
-            <li key={status} className="list-group-item">
-              <span className="badge badge-primary">{origem}</span>
-              <span>data: {data}</span>
-              <span>destino: {destino}</span>
-              <span>status: {status}</span>
+            <li key="{result}" className="list-group-item">
+              <span className="badge badge-primary">{categoria}</span>
+              <span>Data: {tipo}</span>
+              <span>Destino: {data}</span>
+              <span>Status: {hora}</span>
             </li>
           );
         })}
       </ul>
->>>>>>> parent of 36b1dc3... front result 2
-    </>
- );
+      </>
+  );
 }
 
 export default TrackingEvents;

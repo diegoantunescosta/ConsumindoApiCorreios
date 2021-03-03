@@ -1,32 +1,31 @@
-const express = require ('express'); 
-const cors = require ('cors');
-const TrackingCorreios = require ('tracking-correios');
+const express = require("express");
+const cors = require("cors");
+const TrackingCorreios = require("tracking-correios");
 const app = express();
-app.use (cors());
 
+app.use(cors());
 
 const port = 3001;
 
-const get =(obj, path, fallback = null)=>{
-    const pathKeys = (typeof path === 'string') ? path.split('.'): [];
-    const result = pathKeys.reduce((value,key) => value && value[key], obj);
-    return result || fallback;
-}
+const get = (object, path, fallback = null) => {
+  const pathKeys = typeof path === "string" ? path.split(".").filter(key => key.length) : [];
+  const result = pathKeys.reduce((dive, key) => dive && dive[key], object);
+  return result || fallback;
+};
 
-
-
-app.get ('/',(req, res) => {
-    const tracking = get(req, 'query.tracking');
-    TrackingCorreios.track(tracking)
-        .then ((result) =>{
-
-        console.log ('evento', get (result,'0.evento'));      
-
-        res.json({message:'Encomenda do Opressor encontrada',tracking,result});
-        }) 
-        .catch((error)=>{
-        res.json({message: 'Codigo de rastreio do Opressor não encontrado !',error});
-        })
+app.get("/", (req, res) => {
+  const { tracking } = req.query;
+  if (!tracking) {
+    return res.json({ message: "Tracking not ok" });
+  }
+  TrackingCorreios.track(tracking).then(data => {
+    console.log ('evento', get (data,'0.evento'));
+    
+    return res.json({
+      message: "OK",data,tracking
+      
+    });
+  });
 });
 
-app.listen (port,() => console.log(`connected ${port}`))
+app.listen(port, () => console.log(`Listening on port ${port}`));
