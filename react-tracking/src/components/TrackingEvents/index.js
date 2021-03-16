@@ -11,7 +11,7 @@ function TrackingEvents( {events}) {
         {events.map(item => {
           console.log(events)
           const { } = item;
-          console.log(item.evento)
+          console.log(item.tracks)
           return (
             <li key="{index}" className="list-group-item">
               <span>Data: {}</span>
