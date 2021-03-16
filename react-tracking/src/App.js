@@ -15,9 +15,9 @@ function App() {
     fetch (`http://localhost:3001/?tracking=${data.tracking}`)
       .then(response => response.json())
       .then (result =>{
-        if (result.message === "OK") {
-          setEvents(result.data);
-        }
+       
+          setEvents(result);
+      
       })
       .catch (console.error);
 
