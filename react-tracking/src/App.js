@@ -35,6 +35,7 @@ function App() {
           </div> 
           <button type="submit"  className= "btn btn-primary">Rastrear</button> 
       </form> 
+        
 
       <TrackingEvents events={events}/>
 

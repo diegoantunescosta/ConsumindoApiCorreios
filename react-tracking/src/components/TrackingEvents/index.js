@@ -10,17 +10,17 @@ function TrackingEvents( {events}) {
       <ul className="list-group">
         {events.map(item => {
           console.log(events)
-          const {$tipo, $hora,$status,$cidade,nome,numero,sigla,categoria } = item;
+          const { } = item;
+          console.log(item.evento)
           return (
-            <li key="{evento}" className="list-group-item">
-              <span className="badge badge-primary">{categoria}</span>
-              <span>Nome: {nome}</span>
-              <span>Numero: {numero}</span>
-              <span>Sigla: {sigla}</span>
-              <span>Nome: {$tipo}</span>
-              <span>Status: {$status}</span>
-              <span>Data: key={$hora}</span>
-              <span>Cidade: {$cidade}</span>
+            <li key="{index}" className="list-group-item">
+              <span>Data: {}</span>
+              <span>Cidade: {}</span>
+              <span>Nome: {}</span>                      
+              <span>Descrição: {}</span>
+              <span>Hora: {}</span>
+              
+              
             </li>
           );
         })}

@@ -1,7 +1,7 @@
 
 const express = require("express");
 const cors = require("cors");
-const TrackingCorreios = require("tracking-correios");
+// const TrackingCorreios = require("tracking-correios");
 const app = express();
 
 app.use(cors());
@@ -14,19 +14,23 @@ const get = (object, path, fallback = null) => {
   return result || fallback;
 };
 
-app.get("/", (req, res) => {
+app.get("/", async(req, res) => {
   const { tracking } = req.query;
   if (!tracking) {
-    return res.json({ message: "Tracking not ok" });
-  }
-  TrackingCorreios.track(tracking).then(data => {
-    console.log ('evento', get (data,'0.evento'));
     
-    return res.json({
-      message: "OK",data,tracking
-      
-    });
-  });
+    
+    return res();
+  }
+  const { rastro } = require('rastrojs');
+  
+
+        const track = await rastro.track(tracking);
+            
+        console.log(track[0]);
+
+        return res.json (track[0])
+    
 });
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
