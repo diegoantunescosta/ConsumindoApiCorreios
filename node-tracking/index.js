@@ -1,7 +1,7 @@
 
 const express = require("express");
 const cors = require("cors");
-// const TrackingCorreios = require("tracking-correios");
+const TrackingCorreios = require("tracking-correios");
 const app = express();
 
 app.use(cors());
